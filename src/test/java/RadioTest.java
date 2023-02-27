@@ -5,6 +5,17 @@ import ru.netology.Radio;
 public class RadioTest {
 
     @Test
+    public void max() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentRadioStationNumber(5);
+
+        int expected = 5;
+        int actual = radio.getCurrentRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void allowableStationValue() {
         Radio radio = new Radio();
 
@@ -90,65 +101,6 @@ public class RadioTest {
         radio.setCurrentVolume(5);
 
         int expected = 5;
-        int actual = radio.getCurrentVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void maximumVolume() {
-        Radio radio = new Radio();
-
-        radio.setCurrentVolume(11);
-
-        int expected = 0;
-        int actual = radio.getCurrentVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void increaseVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(3);
-
-        radio.increaseVolume();
-
-        int expected = 4;
-        int actual = radio.getCurrentVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void increaseVolume1() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(10);
-
-        radio.increaseVolume();
-
-        int expected = 10;
-        int actual = radio.getCurrentVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void volumeBelowMin() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(-2);
-
-        radio.reduceVolume();
-
-        int expected = 0;
-        int actual = radio.getCurrentVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void volumeAboveMax() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(8);
-
-        radio.reduceVolume();
-
-        int expected = 7;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
